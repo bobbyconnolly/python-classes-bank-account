@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Class Conversion Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .exercise {
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        pre {
+            background-color: #34495e;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .keyword { color: #e74c3c; }
+        .string { color: #f1c40f; }
+        .comment { color: #95a5a6; }
+        .number { color: #2ecc71; }
+        .boolean { color: #9b59b6; }
+        .function { color: #3498db; }
+    </style>
+</head>
+<body>
+    <h1>Python Class Conversion Exercise</h1>
+    
+    <div class="exercise">
+        <h2>Convert to Class</h2>
+        <p>Your task is to convert the following non-class code into a Python class. Follow the instructions below the code.</p>
+    </div>
+
+    <h3>Original Non-Class Code:</h3>
+    <pre><code><span class="keyword">def</span> <span class="function">create_bank_account</span>(account_holder, initial_balance):
+    <span class="keyword">return</span> {
+        <span class="string">"account_holder"</span>: account_holder,
+        <span class="string">"balance"</span>: initial_balance
+    }
+
+<span class="keyword">def</span> <span class="function">deposit</span>(account, amount):
+    account[<span class="string">"balance"</span>] += amount
+    <span class="function">print</span>(<span class="string">f"Deposited ${amount}. New balance: ${account['balance']}"</span>)
+
+<span class="keyword">def</span> <span class="function">withdraw</span>(account, amount):
+    <span class="keyword">if</span> account[<span class="string">"balance"</span>] >= amount:
+        account[<span class="string">"balance"</span>] -= amount
+        <span class="function">print</span>(<span class="string">f"Withdrew ${amount}. New balance: ${account['balance']}"</span>)
+    <span class="keyword">else</span>:
+        <span class="function">print</span>(<span class="string">"Insufficient funds!"</span>)
+
+<span class="keyword">def</span> <span class="function">get_balance</span>(account):
+    <span class="keyword">return</span> account[<span class="string">"balance"</span>]
+
+<span class="comment"># Usage example</span>
+my_account = <span class="function">create_bank_account</span>(<span class="string">"John Doe"</span>, <span class="number">1000</span>)
+<span class="function">deposit</span>(my_account, <span class="number">500</span>)
+<span class="function">withdraw</span>(my_account, <span class="number">200</span>)
+<span class="function">print</span>(<span class="string">f"Current balance: ${<span class="function">get_balance</span>(my_account)}"</span>)</code></pre>
+
+    <h3>Instructions:</h3>
+    <ol>
+        <li>Create a <code>BankAccount</code> class that encapsulates the account holder and balance.</li>
+        <li>Convert the <code>create_bank_account</code> function into the class constructor (<code>__init__</code> method).</li>
+        <li>Convert the <code>deposit</code>, <code>withdraw</code>, and <code>get_balance</code> functions into methods of the class.</li>
+        <li>Implement a <code>__str__</code> method that returns a string representation of the account (e.g., "John Doe's account - Balance: $1300").</li>
+        <li>Update the usage example to use your new <code>BankAccount</code> class.</li>
+    </ol>
+
+        <h3>Basic BankAccount Class Scaffold</h3>
+        <p>Complete the implementation of the basic BankAccount class below:</p>
+        
+        <pre><code><span class="keyword">class</span> <span class="function">BankAccount</span>:
+        <span class="keyword">def</span> <span class="function">__init__</span>(self, account_holder, initial_balance):
+            <span class="comment"># TODO: Initialize the account holder and balance</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">deposit</span>(self, amount):
+            <span class="comment"># TODO: Implement deposit method</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">withdraw</span>(self, amount):
+            <span class="comment"># TODO: Implement withdraw method</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">get_balance</span>(self):
+            <span class="comment"># TODO: Implement get_balance method</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">__str__</span>(self):
+            <span class="comment"># TODO: Implement string representation of the account</span>
+            <span class="keyword">pass</span>
+    
+    <span class="comment"># Test your implementation here</span>
+    <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+        <span class="comment"># Create a bank account</span>
+        my_account = BankAccount(<span class="string">"John Doe"</span>, <span class="number">1000</span>)
+        
+        <span class="comment"># Test your methods</span>
+        <span class="function">print</span>(my_account)  <span class="comment"># Should print account details</span>
+        my_account.deposit(<span class="number">500</span>)
+        my_account.withdraw(<span class="number">200</span>)
+        <span class="function">print</span>(<span class="string">f"Current balance: ${my_account.get_balance()}"</span>)
+        
+        <span class="comment"># Add more tests as needed</span></code></pre>
+
+    <h2>Advanced BankAccount Class Exercise</h2>
+
+    <div class="exercise">
+        <h3>Enhancing Your BankAccount Class</h3>
+        <p>Now that you've created a basic BankAccount class, let's enhance it with more advanced features. Follow these steps to upgrade your class:</p>
+    </div>
+
+    <ol>
+        <li>
+            <strong>Add Private Attributes:</strong>
+            <ul>
+                <li>Change <code>balance</code> to <code>_balance</code> to indicate it's private.</li>
+                <li>Add a new private attribute <code>_transaction_history</code> as an empty list.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implement a Balance Property:</strong>
+            <ul>
+                <li>Use the <code>@property</code> decorator to create a read-only <code>balance</code> property.</li>
+                <li>This allows you to access the balance like an attribute while keeping it protected.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Create a Transaction History System:</strong>
+            <ul>
+                <li>Add a private method <code>_add_transaction(self, transaction_type, amount)</code>.</li>
+                <li>This method should create a dictionary with date, type, amount, and resulting balance.</li>
+                <li>Append this dictionary to <code>_transaction_history</code>.</li>
+                <li>Call this method in <code>__init__</code>, <code>deposit</code>, and <code>withdraw</code>.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Enhance Deposit and Withdraw Methods:</strong>
+            <ul>
+                <li>Add input validation to ensure amount is positive.</li>
+                <li>Use the <code>_add_transaction</code> method to record each transaction.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Add a Method to Retrieve Transaction History:</strong>
+            <ul>
+                <li>Create a <code>get_transaction_history(self)</code> method that returns the full history.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implement a Class Method:</strong>
+            <ul>
+                <li>Add a class method <code>create_joint_account(cls, holder1, holder2, initial_balance)</code>.</li>
+                <li>This method should create and return a new account with a combined holder name.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="exercise">
+        <h3>Testing Your Enhanced BankAccount Class</h3>
+        <p>Once you've implemented these changes, test your class with the following operations:</p>
+    </div>
+
+    <ol>
+        <li>Create a new account with an initial balance.</li>
+        <li>Perform a deposit and a withdrawal.</li>
+        <li>Print the transaction history.</li>
+        <li>Create a joint account using the class method.</li>
+        <li>Print both account details using the <code>__str__</code> method.</li>
+    </ol>
+
+    <div class="exercise">
+        <h3>Bonus Challenge:</h3>
+        <p>Implement a <code>transfer(self, other_account, amount)</code> method that allows transferring money between two accounts. Make sure to update the transaction history for both accounts involved in the transfer.</p>
+    </div>
+
+
+        <h3>Scaffolded BankAccount Class</h3>
+        <p>Complete the implementation of the BankAccount class below:</p>
+        
+        <pre><code><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime
+    
+    <span class="keyword">class</span> <span class="function">BankAccount</span>:
+        <span class="keyword">def</span> <span class="function">__init__</span>(self, account_holder, initial_balance):
+            self.account_holder = account_holder
+            self._balance = initial_balance
+            self._transaction_history = []
+            <span class="comment"># TODO: Record the initial deposit in the transaction history</span>
+    
+        <span class="annotation">@property</span>
+        <span class="keyword">def</span> <span class="function">balance</span>(self):
+            <span class="comment"># TODO: Implement this property</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">deposit</span>(self, amount):
+            <span class="comment"># TODO: Implement deposit method</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">withdraw</span>(self, amount):
+            <span class="comment"># TODO: Implement withdraw method</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">_add_transaction</span>(self, transaction_type, amount):
+            transaction = {
+                <span class="string">"date"</span>: datetime.now().strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>),
+                <span class="string">"type"</span>: transaction_type,
+                <span class="string">"amount"</span>: amount,
+                <span class="string">"balance"</span>: self._balance
+            }
+            <span class="comment"># TODO: Add the transaction to the history</span>
+    
+        <span class="keyword">def</span> <span class="function">get_transaction_history</span>(self):
+            <span class="comment"># TODO: Return the transaction history</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">__str__</span>(self):
+            <span class="comment"># TODO: Implement string representation of the account</span>
+            <span class="keyword">pass</span>
+    
+        <span class="annotation">@classmethod</span>
+        <span class="keyword">def</span> <span class="function">create_joint_account</span>(cls, holder1, holder2, initial_balance):
+            <span class="comment"># TODO: Implement joint account creation</span>
+            <span class="keyword">pass</span>
+    
+        <span class="keyword">def</span> <span class="function">transfer</span>(self, other_account, amount):
+            <span class="comment"># TODO: Implement transfer method (Bonus challenge)</span>
+            <span class="keyword">pass</span>
+    
+    <span class="comment"># Test your implementation here</span>
+    <span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+        <span class="comment"># TODO: Create accounts, perform transactions, and test your methods</span>
+        <span class="keyword">pass</span></code></pre>
+
+
+</body>
+</html>
